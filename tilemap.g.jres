@@ -10,17 +10,17 @@
         "tilemapTile": true,
         "displayName": "myTile"
     },
-    "tile2": {
-        "data": "hwQQABAAAAB3d+7u7u7u/nfn5+7u7u7vd+fn7u7u7u53d37uvu7u/nfn7u7u6+7ud+fn7u7u7u5353fu7u7u73d37u7u7u7+d+fn7u7u7u535+7u7u7u7nd3fu7u7m7+d+fn7u7u7u93d+e+7u7m7nfn7u7u7u7+d3d37u7u7u93d+7n7u7u7g==",
-        "mimeType": "image/x-mkcd-f4",
-        "tilemapTile": true,
-        "displayName": "myTile0"
-    },
     "tile3": {
         "data": "hwQQABAAAABw5w4AAAAAAHd37gAAAAAAd3fuAAAAAAB3d+4AAAAAAHd37gAAAAAAd3fuAAAAAAB3d+4AAAAAAHd37gAAAAAAd3fnAAAAAAB3d+cAAAAAAHd37gAAAAAAd3fuAAAAAAB3d+4AAAAAAHd37gAAAAAAd3fuAAAAAABw5w4AAAAAAA==",
         "mimeType": "image/x-mkcd-f4",
         "tilemapTile": true,
         "displayName": "myTile1"
+    },
+    "tile2": {
+        "data": "hwQQABAAAAB3d2ZmZmZm9ndnZ2ZmZmZvd2dnZmZmZmZ3d3ZmZkZm9ndnZmZmZmZvd2dnZmZmZmZ3Z3dmZmZmb3d3ZmZmZmb2d2dnZmZmZmZ3Z2ZmZmZmZnd3dmZmZmb2d2dnZmZmZm93d2dmZmZmZndnZmZnZmb2d3d3ZmZmZm93d2ZnZmZmZg==",
+        "mimeType": "image/x-mkcd-f4",
+        "tilemapTile": true,
+        "displayName": "myTile0"
     },
     "level1": {
         "id": "level1",
