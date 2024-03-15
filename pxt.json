@@ -10,7 +10,9 @@
         "README.md",
         "assets.json",
         "tilemap.g.jres",
-        "tilemap.g.ts"
+        "tilemap.g.ts",
+        "images.g.jres",
+        "images.g.ts"
     ],
     "testFiles": [
         "test.ts"
@@ -26,8 +28,8 @@
     "palette": [
         "#000000",
         "#a8e4d4",
-        "#d13b27",
         "#BFD7F8",
+        "#d13b27",
         "#cc8218",
         "#b3e868",
         "#5d853a",
