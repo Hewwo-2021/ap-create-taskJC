@@ -1,21 +1,72 @@
-let mySprite = sprites.create(img`
-    . . . . . . . . . . . . . . . . 
-    . . . . . f f f f f f . . . . . 
-    . . . f f 6 6 6 6 f 7 f . . . . 
-    . . f f 6 6 6 6 f 7 7 7 f . . . 
-    . . f 6 6 6 f f 6 6 6 6 f . . . 
-    . . f f f f 6 6 7 7 7 7 6 f . . 
-    . . f 6 7 7 7 f f f f 6 7 f . . 
-    . f f f f f f f 7 7 7 f f f . . 
-    . f f 7 7 7 7 7 f 7 7 7 7 f . . 
-    . f 7 7 7 d 7 1 f d d 7 f . . . 
-    . . f 7 7 7 7 7 d d d f . . . . 
-    . . . . f 6 6 6 6 5 6 f . . . . 
-    . . . . f 6 6 d 6 6 6 f . . . . 
-    . . . f f f 6 6 f 6 6 f f . . . 
-    . . . f f f f f f f f f f . . . 
-    . . . . f f . . . f f f . . . . 
-    `, SpriteKind.Player)
+namespace SpriteKind {
+    export const Shop = SpriteKind.create()
+}
+controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
+    if (mySprite.isHittingTile(CollisionDirection.Bottom)) {
+        mySprite.vy = -1 * spritestats[2]
+    }
+})
+function spawning () {
+    mySprite = sprites.create(img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . f f f f f f . . . . . 
+        . . . f f 6 6 6 6 f 7 f . . . . 
+        . . f f 6 6 6 6 f 7 7 7 f . . . 
+        . . f 6 6 6 f f 6 6 6 6 f . . . 
+        . . f f f f 6 6 7 7 7 7 6 f . . 
+        . . f 6 7 7 7 f f f f 6 7 f . . 
+        . f f f f f f f 7 7 7 f f f . . 
+        . f f 7 7 7 7 7 f 7 7 7 7 f . . 
+        . f 7 7 7 d 7 1 f d d 7 f . . . 
+        . . f 7 7 7 7 7 d d d f . . . . 
+        . . . . f 6 6 6 6 5 6 f . . . . 
+        . . . . f 6 6 d 6 6 6 f . . . . 
+        . . . f f f 6 6 f 6 6 f f . . . 
+        . . . f f f f f f f f f f . . . 
+        . . . . f f . . . f f f . . . . 
+        `, SpriteKind.Player)
+    mySprite.z = 1
+    tiles.placeOnTile(mySprite, tiles.getTileLocation(1, 53))
+    scene.cameraFollowSprite(mySprite)
+    controller.moveSprite(mySprite, spritestats[0], 0)
+    mySprite.ay = 100
+}
+let mySprite: Sprite = null
+let spritestats: number[] = []
+let Shop = sprites.create(img`
+    ................................
+    ..........22222222222...........
+    .........2666666666662..........
+    ........266666666666662.........
+    .......26666666666666662........
+    ......2666...........6662.......
+    .....2666.............6662......
+    ....2666f.............f6662.....
+    ...2666.f.............f.6662....
+    ..2666..bbbbbbbbbbbbbbb..6662...
+    .2666...bfffbfbfbfffbff...6662..
+    ..bbb...bfbbbfbfbfbfbff....6662.
+    ..bbb...bfffbfffbfbfbff....bbb..
+    ..bbb...bbbfbfbfbfbfbfb....bbb..
+    ..bbb...bfffbfbfbfffbfb....bbb..
+    ..bbb......................bbb..
+    ..bbb......................bbb..
+    ..bbb......................bbb..
+    ..bbb......................bbb..
+    ..bbb......................bbb..
+    ..bbb.2.2..............dd..bbb..
+    ..bbb.222...ff........ddd..bbb..
+    ..bbb.222...fffff....ddd...bbb..
+    ..bbb..2....fffff....ed....bbb..
+    .bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb.
+    .bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb.
+    .bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb.
+    .bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb.
+    .bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb.
+    .bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb.
+    .bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb.
+    .bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb.
+    `, SpriteKind.Shop)
 tiles.setCurrentTilemap(tilemap`level0`)
 scene.setBackgroundImage(img`
     3333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333
@@ -139,6 +190,21 @@ scene.setBackgroundImage(img`
     eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
     eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
     `)
-tiles.placeOnTile(mySprite, tiles.getTileLocation(1, 53))
-scene.cameraFollowSprite(mySprite)
-controller.moveSprite(mySprite)
+// Arrays start at 0
+// item 0- speed
+// item 1- attack
+// item 2- jump
+// item 3- health
+// item 4- timer (seconds)
+// 5 items total
+spritestats = [
+50,
+0,
+85,
+1,
+5
+]
+tiles.placeOnTile(Shop, tiles.getTileLocation(5, 52))
+Shop.ay = 1000
+Shop.z = 0
+spawning()
