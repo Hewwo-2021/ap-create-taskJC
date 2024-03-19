@@ -1,15 +1,13 @@
 namespace SpriteKind {
     export const Shop = SpriteKind.create()
 }
+function shopify_with_items_in (myImage: Image, myImage2: Image, myImage3: Image, myImage4: Image, myImage5: Image) {
+	
+}
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     if (mySprite.isHittingTile(CollisionDirection.Bottom)) {
         mySprite.vy = -1 * spritestats[2]
     }
-})
-info.onCountdownEnd(function () {
-    sprites.destroy(mySprite)
-    spawning()
-    info.startCountdown(spritestats[4])
 })
 function spawning () {
     mySprite = sprites.create(img`
@@ -200,17 +198,16 @@ scene.setBackgroundImage(img`
 // item 1- attack
 // item 2- jump
 // item 3- health
-// item 4- timer (seconds)
+// item 4-dash recoil
 // 5 items total
 spritestats = [
 50,
 0,
 85,
 1,
-5
+0.5
 ]
 tiles.placeOnTile(Shop, tiles.getTileLocation(5, 52))
 Shop.ay = 1000
 Shop.z = 0
 spawning()
-info.startCountdown(spritestats[4])
